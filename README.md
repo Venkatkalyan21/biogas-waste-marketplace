@@ -270,6 +270,32 @@ mongodb://username:password@host:port/database
 
 ## 🚀 Deployment
 
+### Quick Deployment
+
+For a quick deployment guide, see [QUICK_DEPLOY.md](./QUICK_DEPLOY.md)
+
+For detailed deployment instructions, see [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
+
+### Deployment Platforms
+
+**Backend (Recommended: Render)**
+- Free tier available
+- Automatic deployments from GitHub
+- Environment variable management
+- [Deploy to Render](https://render.com)
+
+**Frontend (Recommended: Netlify or Vercel)**
+- Free tier available
+- Automatic deployments from GitHub
+- CDN and SSL included
+- [Deploy to Netlify](https://netlify.com) | [Deploy to Vercel](https://vercel.com)
+
+**Database (Recommended: MongoDB Atlas)**
+- Free tier available (512MB)
+- Automatic backups
+- Global clusters
+- [Get MongoDB Atlas](https://mongodb.com/atlas)
+
 ### Production Build
 ```bash
 # Build the React client
@@ -280,14 +306,46 @@ NODE_ENV=production npm start
 ```
 
 ### Environment Variables for Production
+
+**Backend (.env in server/)**
 ```env
 NODE_ENV=production
-MONGODB_URI=mongodb://production-db-url
-JWT_SECRET=super-secure-production-secret
-CLOUDINARY_CLOUD_NAME=production-cloudinary
-STRIPE_SECRET_KEY=sk_live_production_key
-CLIENT_URL=https://yourdomain.com
+PORT=10000
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/biogas_waste_marketplace
+JWT_SECRET=super-secure-production-secret-minimum-32-characters
+CLIENT_URL=https://your-frontend-url.netlify.app
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+RAZORPAY_KEY_ID=rzp_live_your_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_secret
+STRIPE_SECRET_KEY=sk_live_production_key (optional)
+MAPBOX_ACCESS_TOKEN=your_mapbox_token (optional)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_gmail_app_password
 ```
+
+**Frontend (.env in client/)**
+```env
+REACT_APP_API_URL=https://your-backend-url.onrender.com/api
+REACT_APP_GOOGLE_CLIENT_ID=your_google_client_id (optional)
+REACT_APP_GOOGLE_MAPS_API_KEY=your_google_maps_key (optional)
+```
+
+### Deployment Checklist
+
+- [ ] Set up MongoDB Atlas database
+- [ ] Configure Cloudinary for image storage
+- [ ] Deploy backend to Render
+- [ ] Deploy frontend to Netlify/Vercel
+- [ ] Update CORS settings in backend
+- [ ] Configure environment variables
+- [ ] Test all features
+- [ ] Update Google OAuth redirect URIs (if using)
+- [ ] Set up domain (optional)
+- [ ] Enable monitoring and logging
 
 ## 🤝 Contributing
 

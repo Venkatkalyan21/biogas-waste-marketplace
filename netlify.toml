@@ -1,0 +1,27 @@
+# Netlify Configuration for Frontend Deployment
+# Update REACT_APP_API_URL with your actual backend URL after deployment
+
+[build]
+  base = "client"
+  publish = "build"
+  command = "npm install && npm run build"
+
+[build.environment]
+  NODE_VERSION = "18"
+  # Update this with your backend URL: https://your-backend-url.onrender.com/api
+  REACT_APP_API_URL = "https://your-backend-url.onrender.com/api"
+
+# SPA fallback - redirect all routes to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  # Update this with your production backend URL
+  REACT_APP_API_URL = "https://your-backend-url.onrender.com/api"
+
+[context.deploy-preview.environment]
+  # Update this with your backend URL
+  REACT_APP_API_URL = "https://your-backend-url.onrender.com/api"
+

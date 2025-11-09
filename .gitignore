@@ -8,10 +8,13 @@ node_modules/
 .env.development.local
 .env.test.local
 .env.production.local
+server/.env
+client/.env
 
 # Build files
 build/
 dist/
+client/build/
 
 # Logs
 npm-debug.log*
@@ -99,3 +102,7 @@ temp/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Deployment
+.vercel
+.netlify
